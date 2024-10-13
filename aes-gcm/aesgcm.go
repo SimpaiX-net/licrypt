@@ -5,7 +5,6 @@ import (
 	"crypto/cipher"
 	"crypto/rand"
 	"encoding/hex"
-	"sync"
 
 	"github.com/SimpaiX-net/licrypt"
 )
@@ -13,7 +12,6 @@ import (
 // The Crypter instance
 type Crypter struct {
 	block cipher.Block
-	mx    sync.Mutex
 }
 
 func (c *Crypter) Init(key []byte) (*Crypter, error) {
@@ -22,7 +20,7 @@ func (c *Crypter) Init(key []byte) (*Crypter, error) {
 		return nil, err
 	}
 
-	return &Crypter{block, sync.Mutex{}}, nil
+	return &Crypter{block}, nil
 }
 
 func (c *Crypter) Encrypt(input []byte) (licrypt.HexStr, error) {
