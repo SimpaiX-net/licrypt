@@ -4,9 +4,10 @@
 
 # Licrypt
 
-- Symmetric encryption made easy
+- Symmetric cryptography made easy
 - Securely encrypt and decrypt
 - Data authenticity and integrity
+- Performant: ``400ns/op`` & ``8 allocs`` tested in parallel
 
 #### Install PKG
 ``go get github.com/SimpaiX-net/licrypt``
